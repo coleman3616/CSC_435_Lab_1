@@ -1,0 +1,41 @@
+mutate(drv = factor(drv, levels = c('0','1','2'), labels = c("Rear Wheel Drive", "Front Wheel Drive", "All Wheel Drive")))
+
+
+Question 5 
+Lab1_93CARS_Data %>% mutate(FuelEconomy = ifelse(HGW-MPG > 30, "High", ifelse(HGW-MPG <= 30, "Low to Medium", NA)))
+
+Question 6 
+SUM <- select(Lab1_93CARS.Data, MID.PRICE, CITY.MPG, HORSEPWR, TYPE)
+BY_TYPE <- group_by(Lab1_93CARS.Data, TYPE)
+FIN <- summarise(BY_TYPE, MID_PRICE = mean(MID.PRICE))
+FIN <- summarise(BY_TYPE, CITY_MPG = mean(CITY.MPG))
+FIN <- summarise(BY_TYPE, HORSEPOWER = mean(HORSEPWR))
+Question 7 
+ 
+a <- airbag %>% group_by(AIRBAGS) %>% tally()
+ggplot(a, aes(x="", y = n, fill =AIRBAGS)) + geom_bar(width = 1, stat ="identity") + coord_polar("y", start=0) 
+ 
+Question 8
+va <- Lab1_93CARS_Data %>% group_by(DRIVETRAIN) %>% summarise(mean_FC = mean(`FUEL-CAP`))
+ggplot(va, aes(x = DRIVETRAIN, y= `mean_FC`)) + geom_point()
+Question 9 
+ggplot(Lab1_93CARS_Data, aes(x =`ENG SIZE`, y= HORSEPWR)) + geom_point() + geom_smooth()
+
+Question 10
+ggplot(data = Lab1_93CARS_Data, aes(x = "", y = LENGTH)) + geom_boxplot() 
+
+Question 11
+stem(Lab1_93CARS.Data$FUEL.CAP, scale = 2)
+
+Question 12
+mq <- Lab1_93CARS_Data %>% group_by(AIRBAGS, TYPE)%>% 
+  summarise(count = n()) %>% 
+  mutate(AIRBAGS.count = sum(count),prop = count/sum(count))%>% ungroup()     
+ggplot(mq, aes(x = AIRBAGS, y = prop, width = AIRBAGS.count, fill = TYPE)) + geom_bar(stat ="identity", position = "fill", colour = "black") + 
+  facet_grid(~AIRBAGS, scales = "free_x", space = "free_x") +
+  scale_fill_brewer(palette = "RdYlGn") +
+  theme_void() 
+
+Question 13
+ggplot(data = Lab1_93CARS_Data, aes(x = TYPE, y =`HGW-MPG`, color = COMPANY)) + geom_point()
+

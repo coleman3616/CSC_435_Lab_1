@@ -1,0 +1,18 @@
+Column	Details
+A	Company Name
+B	Model Name
+C	Type - Small, Sporty, Compact, Midsize, Large (as defined in the Consumer Reports article)
+D	Midrange Price (in $1,000) - Average of Min and Max prices
+E	City MPG (miles per gallon by EPA rating)
+F	Highway MPG
+G	Air Bags - 0 = none, 1 = driver only, 2 = driver & passenger
+H	Drive train type - 0 = rear wheel drive, 1 = front wheel drive, 2 = all wheel drive
+I	Number of cylinders
+J	Engine size (liters)
+K	Horsepower (maximum)
+L	Manual transmission available 0 = No, 1 = Yes
+M	Fuel tank capacity (gallons)
+N	Passenger capacity (persons)
+O	Length (inches)
+P	Weight (pounds)
+Q	Manufacturer -  0 = Foreign 1 = Domestic
